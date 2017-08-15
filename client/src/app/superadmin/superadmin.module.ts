@@ -12,6 +12,10 @@ import { AddBranchComponent } from './components/hospital/add-branch/add-branch.
 
 import { FormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
+import { AddHospitalAdminComponent } from './components/user/add-hospital-admin/add-hospital-admin.component';
+import { AddBranchAdminComponent } from './components/user/add-branch-admin/add-branch-admin.component';
+import { AddSurgeonComponent } from './components/user/add-surgeon/add-surgeon.component';
+import { AddSupportStaffComponent } from './components/user/add-support-staff/add-support-staff.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { CommonModule } from '@angular/common';
     NavbarComponent,
     DashboardComponent,
     AddHospitalComponent,
-    AddBranchComponent 
+    AddBranchComponent,
+    AddHospitalAdminComponent,
+    AddBranchAdminComponent,
+    AddSurgeonComponent,
+    AddSupportStaffComponent 
   ],
   imports: [
     AppRoutingModule,

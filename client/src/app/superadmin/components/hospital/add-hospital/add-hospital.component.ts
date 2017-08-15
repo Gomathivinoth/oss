@@ -54,7 +54,7 @@ export class AddHospitalComponent implements OnInit {
       this.newHospital.newHospitalName = data.message.hospitalName;
       this.newHospital.newHospitalEmail = data.message.hospitalEmail;
       this.newHospital.newHospitalId = data.message._id;
-      //console.log(this.newHospital);
+      console.log(this.newHospital);
     });
   }
 

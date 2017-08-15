@@ -1,0 +1,97 @@
+<div class="col-md-offset-3 col-md-6" *ngIf="selectHospital">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="sel1">Select Hospital:</label>
+        <select class="form-control" [(ngModel)]="supportStaff.hospitalId" (ngModelChange)="showAddSupportStaffForm(supportStaff.hospitalId)">
+          <option *ngFor="let hospital of hospitalLists" [ngValue]="hospital._id">{{hospital.hospitalName}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4" *ngIf="selectBranch">
+      <div class="form-group">
+        <label for="sel1">Select Branch:</label>
+        <select class="form-control" [(ngModel)]="supportStaff.branchId" (ngModelChange)="showAddSupportStaffNameForm(supportStaff.branchId)">
+          <option *ngFor="let branch of branchLists" [ngValue]="branch._id">{{branch.branchName}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4" *ngIf="selectSurgeon">
+      <div class="form-group">
+        <label for="sel1">Select Surgeon:</label>
+        <select class="form-control" [(ngModel)]="supportStaff.surgeonId" (ngModelChange)="showAddSupportStaffSurgeonForm(supportStaff.surgeonId)">
+          <option *ngFor="let branch of surgeonList" [ngValue]="branch.branchId">{{branch.name}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="showAddSupportStaff">
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" class="form-control" [(ngModel)]="supportStaff.name">
+    </div>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" [(ngModel)]="supportStaff.username">
+    </div>
+    <div class="form-group">
+      <label>Password:</label>
+      <input type="text" class="form-control" [(ngModel)]="supportStaff.password">
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary" (click)="addSupportStaff(supportStaff)">Add Support Staff</button>
+    </div>
+    <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Password</th>
+              <th>Type</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let supportStaff of supportStaffList">
+            <tr *ngIf="supportStaff.userType == 'support_staff'">
+              <td>{{supportStaff.name}}</td>
+              <td>{{supportStaff.password}}</td>
+              <td>{{supportStaff.userType}}</td>
+              <td><button type="button" class="btn btn-primary btn-xs" (click)="editSupportStaff(supportStaff._id)">Edit</button></td>
+              <td><button type="button" class="btn btn-danger btn-xs" (click)="deleteSupportStaff(supportStaff._id)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  </div>
+
+  
+</div>
+
+<div class="col-md-offset-4 col-md-4" *ngIf="showAddSupportStaff1">
+  <form>
+    
+      <div class="form-group">
+        <label>Name</label>
+      <input type="text" class="form-control" placeholder="*New Hospital Name" name="editAdmin.editname" [(ngModel)]="editAdmin.editname">
+    </div>
+    <div class="form-group">
+       <label>Username</label>
+      <input type="text" class="form-control" placeholder="*New Hospital Email" name="editAdmin.editusername" [(ngModel)]="editAdmin.editusername">
+    </div>
+     <div class="form-group">
+       <label>Password</label>
+      <input type="text" class="form-control" placeholder="*New Hospital Email" name="editAdmin.editpassword" [(ngModel)]="editAdmin.editpassword">
+    </div>
+    <div class="form-group" class="hidden">
+      <input type="text" class="form-control" placeholder="*New Hospital Id" name="editAdmin.edithospitalId" [(ngModel)]="editAdmin.edithospitalId">
+    </div>  
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" (click)="updateSupportStaff(editAdmin)">Update</button>
+      <button type="button" class="btn btn-danger" (click)="goBack()">Back</button>
+    </div>
+  </form>
+</div>
+
+
+

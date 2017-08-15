@@ -91,4 +91,72 @@ export class HospitalService {
     return this.http.get(this.domain + 'authentication/getBranches/'+id , this.options).map(res => res.json());
   }
 
+  addHospitalAdmin(hospitalAdmin){
+    console.log(hospitalAdmin);
+    this.createAuthenticationHeaders(); // Create headers
+    return this.http.post(this.domain + 'authentication/addHospitalAdmin', hospitalAdmin, this.options).map(res => res.json());
+  }
+
+  viewHospitalAdmin(id){
+    this.createAuthenticationHeaders(); // Create headers
+    return this.http.get(this.domain + 'authentication/viewHospitalAdmin/'+id , this.options).map(res => res.json());
+  }
+
+  addBranchAdmin(branchAdmin){
+    //console.log(branchAdmin);
+    this.createAuthenticationHeaders(); // Create headers
+    return this.http.post(this.domain + 'authentication/addBranchAdmin', branchAdmin, this.options).map(res => res.json());
+  }
+
+  getSingleBranchAdmin(id){
+     //console.log(id);
+    this.createAuthenticationHeaders(); // Create headers
+    return this.http.get(this.domain + 'authentication/getSingleBranchAdmin/'+id , this.options).map(res => res.json());
+  }
+
+  viewBranchAdmin(id){
+    this.createAuthenticationHeaders(); // Create headers
+    return this.http.get(this.domain + 'authentication/viewBranchAdmin/'+id , this.options).map(res => res.json());
+  }
+
+   addSurgeon(surgeon){
+   // console.log(surgeon);
+    this.createAuthenticationHeaders(); // Create headers
+    return this.http.post(this.domain + 'authentication/addSurgeon', surgeon, this.options).map(res => res.json());
+  }
+
+   getSingleHospitalAdmin(id){
+   //  console.log(id);
+    this.createAuthenticationHeaders(); // Create headers
+    return this.http.get(this.domain + 'authentication/getSingleHospitalAdmin/'+id , this.options).map(res => res.json());
+  }
+
+  updateHospitalAdmin(id){
+     // console.log(id);
+      this.createAuthenticationHeaders(); // Create headers
+      return this.http.put(this.domain + 'authentication/updateHospitalAdmin/' , id , this.options).map(res => res.json());
+  }
+  
+  deleteHospitalAdmin(hospitalAdmin){
+      //console.log(id);
+      this.createAuthenticationHeaders(); // Create headers
+      return this.http.delete(this.domain + 'authentication/deleteHospitalAdmin/'+hospitalAdmin , this.options).map(res => res.json());
+  }
+
+  getSurgeon(id){
+    this.createAuthenticationHeaders(); // Create headers
+    return this.http.get(this.domain + 'authentication/getSurgeon/'+id , this.options).map(res => res.json());
+  }
+
+   addSupportStaff(supportStaff){
+   // console.log(surgeon);
+    this.createAuthenticationHeaders(); // Create headers
+    return this.http.post(this.domain + 'authentication/addSupportStaff', supportStaff, this.options).map(res => res.json());
+  }
+  // getBranchName(id){
+  //   console.log(id);
+  //   this.createAuthenticationHeaders(); // Create headers
+  //   return this.http.get(this.domain + 'authentication/getBranchName/'+id , this.options).map(res => res.json());
+  // }
+
 }
